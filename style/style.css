@@ -1,0 +1,394 @@
+*{
+    margin : 0;padding :0;
+    outline : none;
+    border : none;
+    box-sizing : border-box;
+    text-transform: capitalize;
+    text-decoration: none;
+}
+html{
+    scroll-padding: 7rem;
+    scroll-snap-type: proximity;
+}
+::-webkit-scrollbar{
+    width: 1px;
+}
+::-webkit-scrollbar-track{
+    background:rgb(0, 1, 8);
+}
+::-webkit-scrollbar-thumb{
+    background: #ffffff88;
+}
+
+:root{
+    --primary-1: hsl(176, 50%, 47%);
+    --primary-2 : hsl(176, 72%, 28%);
+    --Neutral : hsl(0, 0%, 48%);
+    --border: 1px solid rgb(0,0,0,0.3);
+}
+.titel{
+    font-weight: 700;
+}
+.description,.text{
+    margin-bottom : 18px;
+    line-height: 180%;
+    opacity : 0.7;
+    font-weight: 300;
+}
+.btn{
+    padding : 18px 32px;
+    border-radius : 35px;
+    background-color: var(--primary-1);
+    font-weight: 700;
+    place-items: center;
+    cursor: pointer;
+    color : #fff;
+}
+
+body{
+    background-image: url(../images/image-hero-desktop.jpg);
+    background-size: 100% auto;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    font-family: 'Commissioner', sans-serif;
+}
+.main_content{
+    padding-right : 10vw;
+    padding-left : 10vw;
+    display : flex;
+    flex-direction: column;
+    gap : 56px;
+}
+.box{
+    width : 100%;
+    background-color: #fff;
+    padding : 32px;
+    max-width : 845px;
+    min-width : 270px;
+    margin : 0px auto;
+    border-radius: 12px;
+    box-shadow: 0px 0px 6px rgb(0,0,0,0.333);
+}
+
+
+/* start the top_block */
+.top_block{
+    position: relative;
+    padding-top : 48px !important;
+}
+#master_img{
+    position: absolute;
+    top : 0;left : 50%;
+    transform: translate(-50%,-50%);
+}
+.top_block .master_titel,.top_block .master_description{
+    text-align: center;
+    margin-bottom : 12px;
+}
+.top_block .footer{
+    padding-top : 32px;
+    display: flex;
+    justify-content: space-between;
+    gap : 32px;
+    align-items: center;
+}
+#bookmark_btn{
+    border-radius: 35px;
+    width : 172px;height : 56px;
+    font-weight: 700;
+    position: relative;
+    text-align: left;
+    cursor: pointer;
+}
+#bookmark_btn svg{
+    position: absolute;
+    top : 0;right : 0;left : auto;
+    transition: all .8s ease-out 0s;
+    -webkit-transition: all .8s ease-out 0s;
+    -moz-transition: all .8s ease-out 0s;
+}
+#bookmark_btn span{
+    margin-right : 28px;
+    margin-left : 28px;
+}
+/* end the top_block */
+
+/* start the number_block */
+.numbers_block .numbers{
+    padding-top : 18px;
+    padding-bottom : 38px;
+    display: flex;
+    gap : 18px;
+}
+.numbers_block .numbers .number_item{
+    flex : 0 0 auto;
+    width : 33%;
+    padding-left : 18px;
+    position: relative;
+}
+.numbers_block .numbers .number_item:not(:last-child)::after{
+    content: "";
+    position: absolute;
+    top : 0;right : 0;
+    height : 87px;width : 1px;
+    background-color: rgba(0, 0, 0, 0.138);
+}
+.number{
+    font-size : 2rem;
+    letter-spacing: 1.6px;
+    margin-bottom : 12px;
+}
+.total_target{
+    position: relative;
+}
+.total_target::before{
+    content: "$";
+    margin-right : 4px;
+}
+.number_box_rang{
+    width : 100%;
+    height : 10px;
+    border-radius :10vh;
+    box-shadow: 0px 0px 7px rgb(0,0,0,0.233);
+    overflow: hidden;
+}
+.number_box_rang_prograss{
+    width : 65%;height : 100%;
+    background-color: var(--primary-1);
+    border-radius: 10vh;
+}
+/* end the number_block */
+
+
+/* start selection block */
+.selection_header{
+    font-weight: 700;
+    margin-bottom: 18px;
+}
+.selection_description{
+    margin-bottom: 28px;
+    max-width : 90%;
+}
+.selections_inner,.modal_selections_items{
+    padding-top : 18px;
+    padding-bottom : 18px;
+    display : flex;
+    flex-direction: column;
+    gap: 32px;
+}
+.selection-item,.modal_selection_item{
+    border : var(--border);
+    border-radius: 12px;
+    padding : 28px;
+}
+.selection-item .head,
+.selection-item .footer{
+    display : flex;
+    gap : 10px;
+    justify-content: space-between;
+    align-items: center;
+}
+.selection-item .head{
+    padding-bottom : 28px;
+}
+.selection-item .head .titel{
+    padding : 0;
+}
+.selection-item .footer{
+    padding-top : 18px;
+}
+.pledge{
+    color : var(--primary-1)
+}
+.num{
+    font-size : 2rem;
+    font-weight: 700;
+}
+.disabled {
+    opacity: 0.7;
+    pointer-events: none;
+    }
+    .disabled .btn {
+        background-color: hsl(0deg, 0%, 48%);
+    }
+/* end selection block */
+
+.modal-selections,
+.modal_thanks{
+    position: fixed;
+    top : 0;left : 0;right :0 ;bottom : 0;
+    z-index: 50;
+    max-height: 90vh;
+    height : fit-content;
+    overflow: auto;
+    margin : auto ;
+    width : 90vw;
+    display: none;
+}
+
+
+
+/* start selection modal block */
+/* start modal selection top */
+.modal_selection_item .top{
+    display : grid;
+    grid-template-areas: 'radio label pledge count'
+                        '. text text text';
+    grid-template-columns: .2fr 1.8fr 1.6fr 2fr;
+    align-items: center;
+    column-gap: 18px;
+    row-gap: 8px;
+}
+#black .top{
+    grid-template-columns: .2fr 1fr 1fr 2fr !important;
+}
+#bamboo .top{
+    grid-template-columns: .2fr .8fr 1fr 2fr !important;
+}
+.modal_selection_item .top .input_rd{
+    grid-area: radio;
+    text-align: center;
+    display  : none;
+}
+.modal_selection_item .top .lable_input_rd{
+    grid-area: label;
+    font-weight: 700;
+    position: relative;
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+}
+.modal_selection_item .top .pledge{
+    grid-area: pledge;
+}
+.modal_selection_item .top .description{
+    grid-area: text;
+    margin-top : 12px;
+    margin-bottom : 12px;
+}
+.modal_selection_item .top .count{
+    grid-area: count;
+    text-align: end;
+}
+.checkmark{
+    width : 15px;height : 15px;
+    outline : var(--border);
+    outline-offset: 4px;
+    position: absolute;
+    left : -40px;top : 50%;
+    transform: translate(-15% , -50%);
+    grid-area: radio;
+    border-radius: 50%;
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+}
+/* end modal selection top */
+
+/* start modal selection bottom */
+.modal_selection_item .bottom{
+    border-top : var(--border);
+    padding-top : 21px;
+    margin-top : 18px;
+    display : flex;
+    align-items: center;
+    justify-content: space-between;
+    display: none;
+}
+.modal_selection_item .bottom .inputs{
+    display: flex;
+    gap : 18px;
+    align-items: center;
+}
+.modal_form_input{
+    border : var(--border);
+    border-radius : 35px;
+    padding : 14px 21px;
+    overflow: hidden;
+    cursor : pointer;
+    display : flex;
+    align-items: center;
+}
+.modal_form_input::before{
+    content :"$";
+    margin-right : 4px;
+    opacity : .6;
+    font-size : 14px
+}
+.modal_selection_item .bottom .inputs input{
+    max-width : 45px ;
+    font-weight: 700;
+}
+.close_model{
+    position: absolute;
+    right : 32px;top : 32px;
+    cursor: pointer;
+}
+/* end modal selection bottom */
+/* end selection modal block */
+
+.thanks_block{
+    max-width : 534px;
+    text-align : center;
+}
+.thanks_block .checked_img{
+    margin-bottom : 28px;
+}
+
+@media (max-width : 575px){
+    body{
+        background-image: url('../images/image-hero-mobile.jpg');
+    }
+    .main_content{
+        padding-right : 5vw;
+        padding-left : 5vw;
+    }
+    #bookmark_btn{
+        padding : 0;
+        width : fit-content;
+    }
+    #bookmark_btn span{
+        display : none
+    }
+    .box{
+        padding : 18px;
+    }
+    .top_block .footer{
+        padding-right : 18px;
+        padding-left : 18px;
+    }
+    .numbers_block .numbers{
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+    .numbers_block .numbers .number_item{
+        flex : 0 0 auto;
+        width : 100%;
+        padding :0;
+    }
+    .numbers_block .numbers .number_item:not(:last-child)::after{
+        width : 107px ; height : 1px;
+        top : 100%;right : 50%;
+        transform: translatex(50%);
+    }
+    .selection-item .head,
+    .selection-item .footer{
+        flex-direction: column;
+        align-items: flex-start;
+}
+.modal_selection_item .top{
+    grid-template-areas: 'radio label label'
+                        'radio pledge pledge'
+                        'text text text'
+                        'count count count';
+    grid-template-columns: .3fr 1fr 1fr;
+}
+.modal_selection_item .top .count{
+    text-align: start;
+}
+.modal_selection_item .bottom{
+    flex-direction: column;
+}
+.checkmark{
+    transform: translateY(0);
+}
+}
